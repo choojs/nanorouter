@@ -29,6 +29,7 @@ function Nanorouter (opts) {
   return emit
 
   function on (routename, listener) {
+    routename = routename.replace(/^[#/]/, '')
     router.on(routename, listener)
   }
 
