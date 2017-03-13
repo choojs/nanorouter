@@ -55,4 +55,3 @@ function pathname (route, isElectron) {
   else route = route.replace(prefix, '')
   return route.replace(suffix, '').replace(normalize, '/')
 }
-

@@ -6,8 +6,7 @@
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "start": "node .",
-    "test": "standard && npm run deps && nyc node test.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov"
+    "test": "standard && npm run deps"
   },
   "dependencies": {
     "wayfarer": "^6.5.0"
