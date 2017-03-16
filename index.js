@@ -33,16 +33,17 @@ function Nanorouter (opts) {
     router.on(routename, listener)
   }
 
-  function emit (route) {
+  function emit () {
+    var route = arguments[0]
     if (!curry) {
-      return router(route)
+      return router.apply(this, arguments)
     } else {
       route = pathname(route, isLocalFile)
       if (route === prevRoute) {
         return prevCallback()
       } else {
         prevRoute = route
-        prevCallback = router(route)
+        prevCallback = router.apply(this, arguments)
         return prevCallback()
       }
     }
