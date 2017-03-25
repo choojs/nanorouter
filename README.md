@@ -22,7 +22,7 @@ router.on('/foo/*', function (params) {
   console.log('and even wildcards', params.wildcard)
 })
 
-router.emit('/foo/hello-planet')
+router('/foo/hello-planet')
 ```
 
 ## FAQ
