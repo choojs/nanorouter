@@ -25,6 +25,7 @@ function Nanorouter (opts) {
   var prevCallback = null
   var prevRoute = null
 
+  emit.router = router
   emit.on = on
   return emit
 
