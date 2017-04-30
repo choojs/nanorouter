@@ -49,6 +49,11 @@ in `opts.default` will be called. If no default handler matches, an error
 will be thrown. Results return from the called handler will be returned from
 this function.
 
+Note that `router()` does not affect browser history. If you would like to
+add or modify history entries when you change routes, you should use
+[`history.pushState()` and `history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)
+alongside `router()`.
+
 ## See Also
 - [yoshuawuyts/sheet-router](https://github.com/yoshuawuyts/sheet-router)
 - [yoshuawuyts/wayfarer](https://github.com/yoshuawuyts/wayfarer)
