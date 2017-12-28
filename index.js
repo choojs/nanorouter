@@ -35,10 +35,10 @@ function Nanorouter (opts) {
   }
 
   function emit (route) {
+    route = pathname(route, isLocalFile)
     if (!curry) {
       return router(route)
     } else {
-      route = pathname(route, isLocalFile)
       if (route === prevRoute) {
         return prevCallback()
       } else {
