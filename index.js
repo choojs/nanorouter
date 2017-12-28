@@ -27,6 +27,7 @@ function Nanorouter (opts) {
 
   emit.router = router
   emit.on = on
+  emit.match = match
   return emit
 
   function on (routename, listener) {
@@ -47,6 +48,11 @@ function Nanorouter (opts) {
         return prevCallback()
       }
     }
+  }
+
+  function match (route) {
+    route = pathname(route, isLocalFile)
+    return router.match(route)
   }
 }
 

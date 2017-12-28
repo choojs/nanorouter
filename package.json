@@ -9,7 +9,7 @@
     "test": "standard && npm run deps"
   },
   "dependencies": {
-    "wayfarer": "^6.5.0"
+    "wayfarer": "^6.6.3"
   },
   "devDependencies": {
     "dependency-check": "^2.8.0",

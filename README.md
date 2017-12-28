@@ -49,6 +49,9 @@ in `opts.default` will be called. If no default handler matches, an error
 will be thrown. Results return from the called handler will be returned from
 this function.
 
+### `matchedRoute = router.match(route)`
+Matches a route and returns an object. The returned object contains the properties `{cb, params, route}`. This method does not invoke the callback of a route. If no route matches, the route specified in `opts.default` will be returned. If no default route matches, an error will be thrown.
+
 Note that `router()` does not affect browser history. If you would like to
 add or modify history entries when you change routes, you should use
 [`history.pushState()` and `history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)
