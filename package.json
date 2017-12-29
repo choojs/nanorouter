@@ -6,7 +6,7 @@
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "start": "node .",
-    "test": "standard && npm run deps"
+    "test": "standard && npm run deps && tape test.js"
   },
   "dependencies": {
     "wayfarer": "^6.6.3"
@@ -15,7 +15,7 @@
     "dependency-check": "^2.8.0",
     "nyc": "^10.1.2",
     "standard": "^9.0.1",
-    "tape": "^4.6.3"
+    "tape": "^4.8.0"
   },
   "keywords": [
     "router",
