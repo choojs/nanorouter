@@ -36,8 +36,6 @@ though.
 Create a new router. `opts` can be:
 - __opts.default:__ set a default handler in case no route matches. Defaults to
   `/404`
-- __opts.curry:__ return the handler function rather than calling it directly.
-  Useful when the same path can be called many times in a row.
 
 ### `router.on(routename, handler(params))`
 Register a handler on a routename. The handler receives an object with params
