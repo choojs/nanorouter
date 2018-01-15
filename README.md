@@ -66,10 +66,10 @@ alongside `router()`.
 [1]: https://nodejs.org/api/documentation.html#documentation_stability_index
 [2]: https://img.shields.io/npm/v/nanorouter.svg?style=flat-square
 [3]: https://npmjs.org/package/nanorouter
-[4]: https://img.shields.io/travis/yoshuawuyts/nanorouter/master.svg?style=flat-square
-[5]: https://travis-ci.org/yoshuawuyts/nanorouter
-[6]: https://img.shields.io/codecov/c/github/yoshuawuyts/nanorouter/master.svg?style=flat-square
-[7]: https://codecov.io/github/yoshuawuyts/nanorouter
+[4]: https://img.shields.io/travis/choojs/nanorouter/master.svg?style=flat-square
+[5]: https://travis-ci.org/choojs/nanorouter
+[6]: https://img.shields.io/codecov/c/github/choojs/nanorouter/master.svg?style=flat-square
+[7]: https://codecov.io/github/choojs/nanorouter
 [8]: http://img.shields.io/npm/dm/nanorouter.svg?style=flat-square
 [9]: https://npmjs.org/package/nanorouter
 [10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
