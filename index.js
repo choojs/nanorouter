@@ -1,7 +1,12 @@
+var assert = require('assert')
 var wayfarer = require('wayfarer')
 
-var isLocalFile = (/file:\/\//.test(typeof window === 'object' &&
-  window.location && window.location.origin)) // electron support
+// electron support
+var isLocalFile = (/file:\/\//.test(
+  typeof window === 'object' &&
+  window.location &&
+  window.location.origin
+))
 
 /* eslint-disable no-useless-escape */
 var electron = '^(file:\/\/|\/)(.*\.html?\/?)?'
@@ -18,47 +23,32 @@ var suffix = new RegExp(qs)
 module.exports = Nanorouter
 
 function Nanorouter (opts) {
+  if (!(this instanceof Nanorouter)) return new Nanorouter(opts)
   opts = opts || {}
+  this.router = wayfarer(opts.default || '/404')
+}
 
-  var router = wayfarer(opts.default || '/404')
-  var curry = opts.curry || false
-  var prevCallback = null
-  var prevRoute = null
+Nanorouter.prototype.on = function (routename, listener) {
+  assert.equal(typeof routename, 'string')
+  routename = routename.replace(/^[#/]/, '')
+  this.router.on(routename, listener)
+}
 
-  emit.router = router
-  emit.on = on
-  emit.match = match
-  return emit
+Nanorouter.prototype.emit = function (routename) {
+  assert.equal(typeof routename, 'string')
+  routename = pathname(routename, isLocalFile)
+  return this.router.emit(routename)
+}
 
-  function on (routename, listener) {
-    routename = routename.replace(/^[#/]/, '')
-    router.on(routename, listener)
-  }
-
-  function emit (route) {
-    if (!curry) {
-      return router(route)
-    } else {
-      route = pathname(route, isLocalFile)
-      if (route === prevRoute) {
-        return prevCallback()
-      } else {
-        prevRoute = route
-        prevCallback = router(route)
-        return prevCallback()
-      }
-    }
-  }
-
-  function match (route) {
-    route = pathname(route, isLocalFile)
-    return router.match(route)
-  }
+Nanorouter.prototype.match = function (routename) {
+  assert.equal(typeof routename, 'string')
+  routename = pathname(routename, isLocalFile)
+  return this.router.match(routename)
 }
 
 // replace everything in a route but the pathname and hash
-function pathname (route, isElectron) {
-  if (isElectron) route = route.replace(stripElectron, '')
-  else route = route.replace(prefix, '')
-  return route.replace(suffix, '').replace(normalize, '/')
+function pathname (routename, isElectron) {
+  if (isElectron) routename = routename.replace(stripElectron, '')
+  else routename = routename.replace(prefix, '')
+  return routename.replace(suffix, '').replace(normalize, '/')
 }
