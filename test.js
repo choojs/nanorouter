@@ -63,6 +63,15 @@ tape('router', function (t) {
     r.emit('#test')
   })
 
+  t.test('.match() should match a path with utf-8 characters', function (t) {
+    t.plan(1)
+    var r = nanorouter()
+    r.on('/foobær', function () {
+      t.fail('accidentally called')
+    })
+    t.ok(r.match(encodeURI('/foobær')))
+  })
+
   t.test('.match() should match a path', function (t) {
     t.plan(2)
     var r = nanorouter()
