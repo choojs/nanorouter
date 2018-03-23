@@ -1,7 +1,7 @@
 {
   "name": "nanorouter",
   "description": "Smol frontend router",
-  "repository": "yoshuawuyts/nanorouter",
+  "repository": "choojs/nanorouter",
   "version": "3.1.0",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
