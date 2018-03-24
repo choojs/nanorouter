@@ -50,5 +50,5 @@ Nanorouter.prototype.match = function (routename) {
 function pathname (routename, isElectron) {
   if (isElectron) routename = routename.replace(stripElectron, '')
   else routename = routename.replace(prefix, '')
-  return routename.replace(suffix, '').replace(normalize, '/')
+  return decodeURI(routename.replace(suffix, '').replace(normalize, '/'))
 }
