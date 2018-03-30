@@ -3,12 +3,16 @@
   "description": "Smol frontend router",
   "repository": "choojs/nanorouter",
   "version": "3.1.0",
+  "browser": {
+    "assert": "nanoassert"
+  },
   "scripts": {
-    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "deps": "dependency-check . && dependency-check . --extra --no-dev -i nanoassert",
     "start": "node .",
     "test": "standard && npm run deps && tape test.js"
   },
   "dependencies": {
+    "nanoassert": "^1.1.0",
     "wayfarer": "^6.6.3"
   },
   "devDependencies": {
