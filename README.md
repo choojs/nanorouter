@@ -22,7 +22,7 @@ router.on('/foo/*', function (params) {
   console.log('and even wildcards', params.wildcard)
 })
 
-router('/foo/hello-planet')
+router.emit('/foo/hello-planet')
 ```
 
 ## FAQ
@@ -41,11 +41,11 @@ Create a new router. `opts` can be:
 Register a handler on a routename. The handler receives an object with params
 on each render. A result can be `return`ed the caller function.
 
-### `result = router(routename)`
+### `result = router.emit(routename)`
 Call a handler for a `routename`. If no handler matches, the handler specified
-in `opts.default` will be called. If no default handler matches, an error
-will be thrown. Results return from the called handler will be returned from
-this function.
+in `opts.default` will be called. If no default handler matches, an error will
+be thrown. Results returned from the called handler will be returned from this
+function.
 
 ### `matchedRoute = router.match(route)`
 Matches a route and returns an object. The returned object contains the properties `{cb, params, route}`. This method does not invoke the callback of a route. If no route matches, the route specified in `opts.default` will be returned. If no default route matches, an error will be thrown.
