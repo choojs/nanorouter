@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "nanoassert": "^1.1.0",
-    "wayfarer": "^6.6.3"
+    "wayfarer": "^7.0.0"
   },
   "devDependencies": {
     "dependency-check": "^2.8.0",
